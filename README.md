@@ -91,3 +91,9 @@ This project is a Dart port inspired by the TypeScript SDK in the OpenAI Codex r
 - Upstream license: Apache-2.0
 
 See `LICENSE` and `NOTICE` in this repository for attribution details.
+
+## Non-profit intent and package name
+
+This project is maintained without profit intent and is published to help the Dart ecosystem.
+
+If OpenAI decides to publish an official Dart package under the `codex` name, the current maintainer is willing to transfer/release this package name to OpenAI without issues.
