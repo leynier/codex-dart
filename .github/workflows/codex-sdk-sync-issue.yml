@@ -1,0 +1,49 @@
+name: codex sdk sync issue
+
+on:
+  schedule:
+    - cron: "17 7 * * *"
+  workflow_dispatch:
+    inputs:
+      force_check:
+        description: Force issue upsert even when versions match.
+        required: false
+        type: boolean
+        default: false
+      override_new_version:
+        description: Override npm latest version (for manual testing).
+        required: false
+        type: string
+      dry_run:
+        description: Print title/body and skip issue mutations.
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: codex-sdk-sync-issue
+  cancel-in-progress: true
+
+jobs:
+  sync-typescript-sdk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: install runtime tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: upsert sync issue
+        env:
+          FORCE_CHECK: ${{ inputs.force_check }}
+          OVERRIDE_NEW_VERSION: ${{ inputs.override_new_version }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          bash .github/scripts/codex_sdk_sync_issue.sh
