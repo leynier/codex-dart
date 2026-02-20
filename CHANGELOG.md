@@ -1,4 +1,4 @@
-## 0.1.0
+## 0.104.0
 
 - Initial release.
 - Added Dart SDK wrapper for `codex exec --experimental-json`.
