@@ -1,7 +1,7 @@
 name: codex
 description: Dart SDK for Codex that wraps the codex CLI over JSONL stdin/stdout.
 version: 0.1.0
-repository: https://github.com/openai/codex/tree/main/sdk/dart
+repository: https://github.com/leynier/codex-dart
 
 environment:
   sdk: ^3.10.9
