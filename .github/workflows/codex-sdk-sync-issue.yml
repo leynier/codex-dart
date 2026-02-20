@@ -42,6 +42,8 @@ jobs:
 
       - name: upsert sync issue
         env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
           FORCE_CHECK: ${{ inputs.force_check }}
           OVERRIDE_NEW_VERSION: ${{ inputs.override_new_version }}
           DRY_RUN: ${{ inputs.dry_run }}
